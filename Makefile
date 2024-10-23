@@ -12,7 +12,8 @@ dev-install:
 	pip install -r requirements/dev.txt
 dev-test:
 	python3 manage.py test --settings=config.settings.dev
-
+dev-super:
+	python manage.py createsuperuser --settings=config.settings.dev
 prod-install:
 	pip install -r requirements/prod.txt
 prod-migrate:
