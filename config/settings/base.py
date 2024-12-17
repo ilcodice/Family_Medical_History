@@ -11,10 +11,17 @@ DEFAULT_APP = [
     "django.contrib.staticfiles",
 ]
 CREATED_APP = [
+    
+    "apps.Patient.apps.PatientConfig",
+    "apps.Appointment.apps.AppointmentConfig",
+    "apps.Operation.apps.OperationConfig",
+    "apps.Allergy.apps.AllergyConfig",
+    "apps.Disease.apps.DiseaseConfig",
+    "apps.Medication.apps.MedicationConfig",
     "apps.core.apps.CoreConfig",
 ]  # custom apps goe here
 
-THIRD_PARTY_APP = []  # third party apps goe here
+THIRD_PARTY_APP = ['rest_framework.authtoken',]  # third party apps goe here
 
 INSTALLED_APPS = [*DEFAULT_APP, *CREATED_APP, *THIRD_PARTY_APP]
 
@@ -74,4 +81,39 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Templates settings
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # Add the templates directory here
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # This enables token authentication
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Ensures the user must be authenticated
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',  # ensures that the response is returned as JSON by default.
+    ],
+}

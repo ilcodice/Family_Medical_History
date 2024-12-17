@@ -2,6 +2,8 @@ dev-start:
 	python3 manage.py runserver --settings=config.settings.dev
 dev-migrate:
 	python3 manage.py migrate --settings=config.settings.dev
+dev-createapp:
+	python3 manage.py startapp <app_name> --settings=config.settings.dev
 dev-makemigrations:
 	python3 manage.py makemigrations --settings=config.settings.dev
 dev-shell:

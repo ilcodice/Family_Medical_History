@@ -1,0 +1,1 @@
+from apps.Disease.models.disease import Disease
