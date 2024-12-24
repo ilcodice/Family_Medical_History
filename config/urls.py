@@ -19,8 +19,12 @@ from django.urls import path, include
 from rest_framework.authtoken import views
 from django.urls import path
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('api/v1/patient/', include('apps.Patient.urls', namespace='patient-urls')),
+    #path('api/v1/patient/', include('apps.Patient.urls', namespace='patient-urls')), # this is for Api's path
     path('api-token-auth/', views.obtain_auth_token, name='api_token_auth'),
+
+    # Include all urls from patient
+    path("", include('apps.Patient.urls', namespace='Patien-urls')),
 ]

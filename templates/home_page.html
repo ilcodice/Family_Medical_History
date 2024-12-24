@@ -1,0 +1,37 @@
+
+
+<!-- 
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Page</title>
+</head>
+<body>
+    <h1>Welcome to Family Medical History</h1>
+
+    <form>
+        
+    </form>
+    <p><a href="{% static 'apps/Patient/tempaltes/patient_detail.html' %}">view_patients</a></p>
+</body>
+</html> 
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Patient Management System</h1>
+    <button onclick="location.href='{% url 'patient-urls:patient_list' %}'">Click to See All Patients</button>
+
+
+</body>
+</html>
