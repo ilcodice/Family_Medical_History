@@ -3,7 +3,7 @@ dev-start:
 dev-migrate:
 	python3 manage.py migrate --settings=config.settings.dev
 dev-createapp:
-	python3 manage.py startapp <app_name> --settings=config.settings.dev
+	cd apps/ && ../.venv/bin/python3 ../manage.py startapp $(app) --settings=config.settings.dev
 dev-makemigrations:
 	python3 manage.py makemigrations --settings=config.settings.dev
 dev-shell:

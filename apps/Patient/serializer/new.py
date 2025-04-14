@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator
 
 
 
-class patientSerializer(serializers.Serializer):
+class PatientSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     phone_number = serializers.CharField()
     date_of_birth = serializers.DateField()

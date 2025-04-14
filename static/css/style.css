@@ -1,0 +1,13 @@
+.nav{
+    height: 10vh;
+    background: linear-gradient(to right, #4a90e2,#1d4e89);
+}
+h2 {
+    color:#2a9df4;
+    font-family: Arial, sans-serif; /* Add a font-family */
+    text-shadow: 2px 2px 4px black; /* Outline effect */
+}
+
+
+
+

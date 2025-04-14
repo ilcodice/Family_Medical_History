@@ -9,23 +9,27 @@ DEFAULT_APP = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
 ]
 CREATED_APP = [
     
-    "apps.Patient.apps.PatientConfig",
-    "apps.Appointment.apps.AppointmentConfig",
-    "apps.Operation.apps.OperationConfig",
-    "apps.Allergy.apps.AllergyConfig",
-    "apps.Disease.apps.DiseaseConfig",
-    "apps.Medication.apps.MedicationConfig",
-    "apps.core.apps.CoreConfig",
+    "apps.Patient",
+    "apps.Appointment",
+    "apps.Operation",
+    "apps.Allergy",
+    "apps.Disease",
+    "apps.Medication",
+    "apps.core",
+    "apps.main",
 ]  # custom apps goe here
 
-THIRD_PARTY_APP = ['rest_framework.authtoken',]  # third party apps goe here
+THIRD_PARTY_APP = ['rest_framework.authtoken',
+]  # third party apps goe here
 
 INSTALLED_APPS = [*DEFAULT_APP, *CREATED_APP, *THIRD_PARTY_APP]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",  
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -33,15 +37,16 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
 ]
 
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # This is crucial
+        'APP_DIRS': True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -52,6 +57,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -83,22 +89,8 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# Templates settings
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Add the templates directory here
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

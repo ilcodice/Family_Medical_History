@@ -11,6 +11,8 @@ class Patient(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     current_city = models.CharField(max_length=20,choices=[('Amude','Amude'),('Berlin','Berlin')],blank=True, null=True)
     gender = models.CharField(max_length=1,choices=[('M', 'Male'), ('F', 'Female')],blank=True,null=True)
+  
+    
 
 
     class Meta:

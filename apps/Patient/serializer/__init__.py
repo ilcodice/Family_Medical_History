@@ -1,4 +1,4 @@
-from .new import patientSerializer
+from .new import PatientSerializer
 from .patient import PatientRegistrationSerializer
 from .patient_login import PatientLoginSerializer
-from .patient_diseaes import DiseaseSerializer
+from apps.Disease.serializer import DiseaseSerializer
